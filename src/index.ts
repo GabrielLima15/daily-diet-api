@@ -1,5 +1,6 @@
 'use strict';
 
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = {
   /**
    * An asynchronous register function that runs before
@@ -16,7 +17,9 @@ module.exports = {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap({ strapi }) {
+  bootstrap({
+   strapi
+  }: any) {
     // strapi.db.lifecycles.subscribe({
     //   models: ['api::process.process'],
 

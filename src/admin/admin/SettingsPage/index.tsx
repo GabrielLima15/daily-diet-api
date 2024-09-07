@@ -8,6 +8,7 @@ import {
     useNotification,
     useRBAC,
     useTracking,
+// @ts-expect-error TS(7016): Could not find a declaration file for module '@str... Remove this comment to see the full error message
 } from '@strapi/helper-plugin';
 import {
     Button,
@@ -20,14 +21,21 @@ import {
     Link,
     Main,
     Typography,
+// @ts-expect-error TS(7016): Could not find a declaration file for module '@str... Remove this comment to see the full error message
 } from '@strapi/design-system';
 import { ExternalLink, Check } from '@strapi/icons';
+// @ts-expect-error TS(2307): Cannot find module 'ee_else_ce/pages/SettingsPage/... Remove this comment to see the full error message
 import AdminSeatInfo from 'ee_else_ce/pages/SettingsPage/pages/ApplicationInfosPage/components/AdminSeatInfo';
 
+// @ts-expect-error TS(2307): Cannot find module '../../../../permissions' or it... Remove this comment to see the full error message
 import adminPermissions from '../../../../permissions';
+// @ts-expect-error TS(2307): Cannot find module '../../../../hooks' or its corr... Remove this comment to see the full error message
 import { useConfigurations } from '../../../../hooks';
+// @ts-expect-error TS(2307): Cannot find module './components/CustomizationInfo... Remove this comment to see the full error message
 import CustomizationInfos from './components/CustomizationInfos';
+// @ts-expect-error TS(2307): Cannot find module './utils/api' or its correspond... Remove this comment to see the full error message
 import { fetchProjectSettings, postProjectSettings } from './utils/api';
+// @ts-expect-error TS(2307): Cannot find module './utils/getFormData' or its co... Remove this comment to see the full error message
 import getFormData from './utils/getFormData';
 
 const ApplicationInfosPage = () => {
@@ -55,11 +63,12 @@ const ApplicationInfosPage = () => {
         },
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: any) => {
         e.preventDefault();
 
         if (!canUpdate) return;
 
+        // @ts-expect-error TS(2532): Object is possibly 'undefined'.
         const inputValues = inputsRef.current.getValues();
         const formData = getFormData(inputValues);
 
@@ -94,10 +103,15 @@ const ApplicationInfosPage = () => {
     };
 
     return (
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <Layout>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <SettingsPageTitle name="Application" />
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
             <Main>
+                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                 <form onSubmit={handleSubmit}>
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <HeaderLayout
                         title={formatMessage({ id: 'Settings.application.title', defaultMessage: 'Overview' })}
                         subtitle={formatMessage({
@@ -106,14 +120,18 @@ const ApplicationInfosPage = () => {
                         })}
                         primaryAction={
                             canSubmit && (
+                                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                 <Button type="submit" startIcon={<Check />}>
                                     {formatMessage({ id: 'global.save', defaultMessage: 'Save' })}
                                 </Button>
                             )
                         }
                     />
+                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                     <ContentLayout>
+                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                         <Flex direction="column" alignItems="stretch" gap={6}>
+                            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                             <Flex
                                 direction="column"
                                 alignItems="stretch"
@@ -126,6 +144,7 @@ const ApplicationInfosPage = () => {
                                 paddingRight={7}
                                 paddingLeft={7}
                             >
+                                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                 <Typography variant="delta" as="h3">
                                     {formatMessage({
                                         id: 'global.details',
@@ -133,20 +152,26 @@ const ApplicationInfosPage = () => {
                                     })}
                                 </Typography>
 
+                                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                 <Grid gap={5} as="dl">
+                                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                     <GridItem col={6} s={12}>
+                                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                         <Typography variant="sigma" textColor="neutral600" as="dt">
                                             {formatMessage({
                                                 id: 'Settings.application.node-version',
                                                 defaultMessage: 'node version',
                                             })}
                                         </Typography>
+                                        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                         <Typography as="dd">{appInfos.nodeVersion}</Typography>
                                     </GridItem>
+                                    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                     <AdminSeatInfo />
                                 </Grid>
                             </Flex>
                             {canRead && data && (
+                                // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
                                 <CustomizationInfos
                                     canUpdate={canUpdate}
                                     ref={inputsRef}

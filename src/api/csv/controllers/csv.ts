@@ -1,19 +1,26 @@
 'use strict';
 
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 var Json2csvParser = require('json2csv').Parser;
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'fs'.
 const fs = require('fs');
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'path'.
 const path = require('path');
+// @ts-expect-error TS(2580): Cannot find name 'require'. Do you need to install... Remove this comment to see the full error message
 const csv = require("csvtojson");
 
 
-const saveFile = (fileToUpload) => {
+// @ts-expect-error TS(2451): Cannot redeclare block-scoped variable 'saveFile'.
+const saveFile = (fileToUpload: any) => {
   return new Promise(async (resolve) => {
     const fileResult = await fs.readFileSync(fileToUpload.path);
+    // @ts-expect-error TS(2580): Cannot find name 'Buffer'. Do you need to install ... Remove this comment to see the full error message
     const fileData = Buffer.from(fileResult);
+    // @ts-expect-error TS(2304): Cannot find name '__dirname'.
     const destinationFolder = __dirname + "/../../../../public/";
     const fileName = fileToUpload.name;
     const destinationFilePath = path.join(destinationFolder, fileName);
-    fs.writeFile(destinationFilePath, fileData, (err) => {
+    fs.writeFile(destinationFilePath, fileData, (err: any) => {
       if (err) {
         console.error('Error saving file:', err);
       } else {
@@ -21,10 +28,10 @@ const saveFile = (fileToUpload) => {
         // resolve(fileData);
       }
     });
-  })
+  });
 }
 
-const convertCsvToJson = async (csvFilePath) => {
+const convertCsvToJson = async (csvFilePath: any) => {
   try {
     const data = await csv().fromFile(csvFilePath)
     //remove file
@@ -36,38 +43,47 @@ const convertCsvToJson = async (csvFilePath) => {
   }
 };
 
+// @ts-expect-error TS(2580): Cannot find name 'module'. Do you need to install ... Remove this comment to see the full error message
 module.exports = {
-  download: async (ctx) => {
+  download: async (ctx: any) => {
     try {
       let { table, filter, omit, prep } = ctx.request.query;
 
       if (!table) {
+        // @ts-expect-error TS(2552): Cannot find name 'badRequest'. Did you mean 'IDBRe... Remove this comment to see the full error message
         return badRequest("table is empty");
       }
 
-      const model = strapi.db.config.models.find(model => model.collectionName === table);
+      // @ts-expect-error TS(2304): Cannot find name 'strapi'.
+      const model = strapi.db.config.models.find((model: any) => model.collectionName === table);
+      // @ts-expect-error TS(2304): Cannot find name 'strapi'.
       var data = await strapi.db.query(model?.uid).findMany(JSON.parse(filter || "{}"));
 
       if (omit) {
-        const omitParse = (obj, arr) =>
+        const omitParse = (obj: any, arr: any) =>
           Object.keys(obj)
             .filter(k => !arr.includes(k))
+            // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
             .reduce((acc, key) => ((acc[key] = obj[key]), acc), {});
 
         omit = JSON.parse(omit)
 
-        data = data.map(item => omitParse(item, omit));
+        data = data.map((item: any) => omitParse(item, omit));
 
       }
 
       if (prep) {
         prep = JSON.parse(prep);
-        data = data.map(item => ({ ...prep, ...item }))
+        data = data.map((item: any) => ({
+          ...prep,
+          ...item
+        }))
       }
 
       if (data?.length > 0) {
         let columns = [];
-        let listColumns = strapi.db.config.models.find(f => f.uid === model.uid)
+        // @ts-expect-error TS(2304): Cannot find name 'strapi'.
+        let listColumns = strapi.db.config.models.find((f: any) => f.uid === model.uid)
         for (var i of Object.keys(listColumns?.attributes)) {
           columns.push(i);
         }
@@ -85,7 +101,7 @@ module.exports = {
 
     }
   },
-  upload: async (ctx) => {
+  upload: async (ctx: any) => {
     try {
       const { files } = ctx.request;
 
