@@ -1,4 +1,4 @@
-# 🛸 Api Daily Diet
+# 🛸 Api Gabriel
 
 The project was created using the docker and quick build strapi api (CMS).
 

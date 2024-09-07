@@ -5,11 +5,11 @@ const _ = require('lodash');
 
 const dispatchMail = async (user, message) => {
   const emailTemplate = {
-      subject: 'Bem vindo ao Daily Diet, <%= user.name %>',
+      subject: 'Bem vindo ao Gabriel, <%= user.name %>',
       html: message,
       text: message,
   };
-
+    
   await strapi.plugins.email.services.email.sendTemplatedEmail(
       { to: user.email }, emailTemplate,
       { user: _.pick(user, ['username', 'email', 'name']), }

@@ -1,8 +1,8 @@
 {
-  "name": "daily-diet-api",
+  "name": "gabriel-api",
   "private": true,
   "version": "0.1.0",
-  "description": "Api for Daily Diet Application",
+  "description": "Api for Gabriel Application",
   "scripts": {
     "develop": "strapi develop",
     "generate": "strapi generate",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.4.0",
-    "@strapi/typescript-utils": "^4.25.10",
+    "@types/node": "^22.5.4",
     "ts-migrate": "^0.1.35",
     "typescript": "^5.5.4"
   },
