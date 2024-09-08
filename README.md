@@ -9,6 +9,16 @@ API desenvolvida em Strapi para o aplicativo **Daily Diet**, responsável pelo g
 - Remover uma refeição
 - Exibir estatísticas de progresso da dieta
 
+## Tecnologias
+
+- **Node.js**
+- **Strapi** 
+- **MySQL** 
+- **React** 
+- **React Router DOM**
+- **Styled Components** 
+- **TypeScript**
+  
 ## Instalação e Configuração
 
 Siga os passos abaixo para configurar o projeto localmente:
