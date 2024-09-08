@@ -1,51 +1,35 @@
 {
-  "name": "gabriel-api",
+  "name": "daily-diet-api",
   "private": true,
   "version": "0.1.0",
-  "description": "Api for Gabriel Application",
+  "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "generate": "strapi generate",
-    "services": "strapi services:list",
-    "watch": "strapi develop --watch-admin",
     "start": "strapi start",
-    "build": "strapi build && node config/scripts.js",
-    "strapi": "strapi"
+    "build": "strapi build",
+    "strapi": "strapi",
+    "deploy": "strapi deploy"
   },
-  "devDependencies": {
-    "@eslint/js": "^9.4.0",
-    "@types/node": "^22.5.4",
-    "ts-migrate": "^0.1.35",
-    "typescript": "^5.5.4"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-documentation": "4.10.7",
-    "@strapi/plugin-i18n": "4.10.7",
-    "@strapi/plugin-users-permissions": "4.10.7",
-    "@strapi/provider-email-sendgrid": "4.10.7",
-    "@strapi/strapi": "4.10.7",
-    "axios": "1.5.0",
-    "basic-ftp": "5.0.3",
-    "bcrypt": "5.1.1",
-    "better-sqlite3": "8.0.1",
-    "csv-parse": "5.4.0",
-    "csvtojson": "2.0.10",
-    "json-2-csv": "4.1.0",
-    "json2csv": "6.0.0-alpha.2",
-    "moment": "2.29.4",
+    "@strapi/strapi": "4.25.10",
+    "@strapi/plugin-users-permissions": "4.25.10",
+    "@strapi/plugin-i18n": "4.25.10",
+    "@strapi/plugin-cloud": "4.25.10",
     "mysql": "2.18.1",
-    "mysql2": "3.3.3",
-    "strapi-plugin-import-export-entries": "1.23.1",
-    "xlsx": "^0.18.5"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "5.3.4",
+    "styled-components": "5.3.3"
   },
   "author": {
-    "name": "xApps Team"
+    "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "4ea5c508a6566e76240543f8feb06fd457777be39549c4016436afda65d2330e"
+    "uuid": "0f8ce740-41c5-4344-ac01-aa91b7f2638b"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

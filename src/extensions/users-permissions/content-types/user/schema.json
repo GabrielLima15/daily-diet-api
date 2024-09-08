@@ -65,31 +65,10 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "phone": {
-      "type": "string"
-    },
-    "cpf": {
-      "type": "string",
-      "unique": true,
-      "required": false
-    },
-    "name": {
-      "type": "string"
-    },
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "address": {
-      "type": "component",
-      "repeatable": false,
-      "component": "user.address"
+    "meals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::meal.meal"
     }
   }
 }

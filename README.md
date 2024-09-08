@@ -1,31 +1,30 @@
-# 🛸 Api Gabriel
+# Daily Diet API
 
-The project was created using the docker and quick build strapi api (CMS).
+API desenvolvida em Strapi para o aplicativo **Daily Diet**, responsável pelo gerenciamento de refeições e estatísticas de dieta.
 
+## Funcionalidades
 
-## Environment variables
+- Adicionar uma nova refeição
+- Editar uma refeição
+- Remover uma refeição
+- Exibir estatísticas de progresso da dieta
 
-The example of the environment variables necessary for the system to work is found in this way:
+## Instalação e Configuração
 
-```
-api/.env.example
-```
+Siga os passos abaixo para configurar o projeto localmente:
 
-## Project startup
+```bash
+# Clone o repositório
+git clone https://github.com/GabrielLima15/daily-diet-api.git
 
-To start in development mode:
+# Acesse o diretório do projeto
+cd daily-diet-api
 
-```
-cd api
-yarn
-yarn build
+# Instale as dependências
+yarn install
+
+# Crie e configure o arquivo .env
+cp .env.example .env
+
+# Inicie o servidor de desenvolvimento
 yarn develop
-```
-
-To deploy in an environment use docker compose to facilitate the process:
-
-```
-cd api/
-docker-compose build
-docker-compose up
-```
